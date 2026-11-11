@@ -1,0 +1,1085 @@
+
+/* ========================================
+   THE RIZZLER
+   JAVASCRIPT
+======================================== */
+
+
+/* ========================================
+   SLANG DATABASE
+======================================== */
+
+
+
+const definitionfilepath = "defs.csv";
+Papa.parse(definitionfilepath, {
+    download:true, 
+    header: true,
+    skipEmptyLines: true, 
+    complete: function(results){
+        console.log(results.data);
+    },
+
+    error: function(error){
+        console.error(error);
+    },
+
+})
+
+const slangDictionary = {
+
+    "chud": {
+        type: "noun",
+        definition:
+            "An insulting internet term for an unattractive, unpleasant, or stereotypically aggressive person.",
+        example:
+            "He was acting like a total chud online."
+    },
+
+    "diddy": {
+        type: "adjective",
+        definition:
+            "A meme reference to Sean 'Diddy' Combs, used online to imply that someone is behaving suspiciously or inappropriately.",
+        example:
+            "Bro, that comment is getting a little Diddy."
+    },
+
+    "blud": {
+        type: "noun",
+        definition:
+            "A casual way of referring to a friend or another person, similar to 'bro' or 'dude'.",
+        example:
+            "Blud really thought he could win."
+    },
+
+    "67": {
+        type: "expression",
+        definition:
+            "A deliberately nonsensical internet expression associated with a viral meme and generally used for comedic effect.",
+        example:
+            "What does 67 even mean? 67."
+    },
+
+    "69": {
+        type: "number",
+        definition:
+            "A number that is also widely used online as a sexual reference.",
+        example:
+            "The class laughed when someone randomly wrote 69 on the board."
+    },
+
+    "unc": {
+        type: "noun",
+        definition:
+            "A humorous shortening of 'uncle', usually used to imply that someone is older or acting old-fashioned.",
+        example:
+            "Unc still uses Facebook as his main social media."
+    },
+
+    "cuh / cuz": {
+        type: "noun",
+        definition:
+            "Casual terms for a friend, associate, or close acquaintance, sometimes derived from 'cousin'.",
+        example:
+            "Cuh, you need to see this."
+    },
+
+    "huzz": {
+        type: "noun",
+        definition:
+            "Internet slang referring to girls or women, often used jokingly or disrespectfully.",
+        example:
+            "He was trying way too hard to impress the huzz."
+    },
+
+    "chuzz": {
+        type: "noun",
+        definition:
+            "A slang term derived from 'chopped huzz', generally used as an insult toward someone perceived as unattractive.",
+        example:
+            "The comments were calling the character a chuzz."
+    },
+
+    "sybau": {
+        type: "acronym",
+        definition:
+            "An acronym meaning 'shut your b**** ass up', used online to tell someone to stop talking.",
+        example:
+            "You are still talking about that? SYBAU."
+    },
+
+    "asf": {
+        type: "abbreviation",
+        definition:
+            "An abbreviation for 'as f***', used to strongly emphasize an adjective or statement.",
+        example:
+            "That movie was funny asf."
+    },
+
+    "son / sonion": {
+        type: "noun",
+        definition:
+            "A playful way of addressing another person, often a younger friend, teammate, or someone being teased.",
+        example:
+            "Son, you are not winning this argument."
+    },
+
+    "asmr": {
+        type: "noun",
+        definition:
+            "Autonomous Sensory Meridian Response, a tingling or relaxing sensation some people experience in response to particular sounds, visuals, or other sensory triggers.",
+        example:
+            "She watches ASMR videos before going to sleep."
+    },
+
+    "aura": {
+        type: "noun",
+        definition:
+            "A person's perceived presence, charisma, confidence, or coolness.",
+        example:
+            "He walked into the room with so much aura."
+    },
+
+    "aura points": {
+        type: "noun",
+        definition:
+            "Imaginary points representing how cool, impressive, or charismatic someone appears.",
+        example:
+            "He lost 500 aura points by tripping in front of everyone."
+    },
+
+    "baddie": {
+        type: "noun",
+        definition:
+            "A person, usually a girl or young woman, perceived as stylish, confident, and attractive.",
+        example:
+            "She posted a photo showing off her new outfit and called herself a baddie."
+    },
+
+    "bde": {
+        type: "abbreviation",
+        definition:
+            "Big D*** Energy; an internet expression describing an impression of confidence, self-assurance, or boldness.",
+        example:
+            "He gave off BDE when he confidently presented his idea."
+    },
+
+    "bed rot / bed rotting": {
+        type: "verb",
+        definition:
+            "To spend an extended period in bed resting, scrolling, watching videos, or doing very little.",
+        example:
+            "I spent Saturday bed rotting and watching movies."
+    },
+
+    "beige flag": {
+        type: "noun",
+        definition:
+            "A mildly unusual, quirky, or boring personality trait that is neither clearly positive nor negative.",
+        example:
+            "Her beige flag is that she organizes her books by color."
+    },
+
+    "kfc boss": {
+        type: "noun",
+        definition:
+            "An insulting meme term used to describe a person perceived as overweight, sometimes implying an association with fast food.",
+        example:
+            "They called the character a KFC boss."
+    },
+
+    "bffr": {
+        type: "acronym",
+        definition:
+            "Be f***ing for real; an expression meaning 'be serious' or 'stop being ridiculous'.",
+        example:
+            "BFFR, you knew that was going to happen."
+    },
+
+    "bet": {
+        type: "expression",
+        definition:
+            "A casual way of saying 'okay', 'sure', 'agreed', or 'I understand'.",
+        example:
+            "Meet me at six? Bet."
+    },
+
+    "biblically accurate": {
+        type: "phrase",
+        definition:
+            "Extremely faithful to an original description or depiction, often used humorously when the original is strange or frightening-looking.",
+        example:
+            "That artist made a biblically accurate angel."
+    },
+
+    "angel shot": {
+        type: "noun",
+        definition:
+            "A discreet code phrase associated with personal-safety situations in some bars and venues.",
+        example:
+            "She had heard that an Angel Shot could be used as a discreet request for help."
+    },
+
+    "body / bodied": {
+        type: "verb",
+        definition:
+            "To perform exceptionally well or completely dominate something.",
+        example:
+            "She absolutely bodied that debate."
+    },
+
+    "boo": {
+        type: "noun",
+        definition:
+            "A casual term of affection for a close friend or romantic partner.",
+        example:
+            "She called her best friend boo."
+    },
+
+    "boomer": {
+        type: "noun",
+        definition:
+            "A person perceived as old-fashioned, technologically inexperienced, or out of touch with younger generations.",
+        example:
+            "My dad couldn't figure out how to use the new app—such a boomer."
+    },
+
+    "bop": {
+        type: "noun",
+        definition:
+            "A song that is especially catchy, enjoyable, or energetic.",
+        example:
+            "This song is such a bop."
+    },
+
+    "bop (insult)": {
+        type: "noun",
+        definition:
+            "A derogatory internet term used to insult someone, often a girl or woman, by implying that they are sexually promiscuous.",
+        example:
+            "Calling someone a bop can be intended as an insult."
+    },
+
+    "breadcrumbing": {
+        type: "verb",
+        definition:
+            "Giving someone small amounts of attention without genuinely intending to develop a relationship or friendship.",
+        example:
+            "He kept breadcrumbing her by occasionally sending messages but never actually making plans."
+    },
+
+    "bruh": {
+        type: "expression",
+        definition:
+            "An expression of disbelief, annoyance, surprise, disappointment, or amusement.",
+        example:
+            "Bruh, you forgot your homework again?"
+    },
+
+    "big back": {
+        type: "noun",
+        definition:
+            "A teasing or insulting internet expression referring to someone perceived as eating a lot or having a large body.",
+        example:
+            "Big back is often used online as a joke about someone constantly talking about food."
+    },
+
+    "larp": {
+        type: "verb",
+        definition:
+            "To pretend to be something you are not, especially by exaggerating your lifestyle, abilities, identity, or experiences.",
+        example:
+            "Bro is larping as a millionaire."
+    },
+
+    "sub-3": {
+        type: "noun",
+        definition:
+            "Looksmaxxing jargon for a person who is rated below a 3 on certain internet attractiveness scales.",
+        example:
+            "The creator used 'sub-3' as part of the character's looksmaxxing rating."
+    },
+
+    "true eve": {
+        type: "noun",
+        definition:
+            "Looksmaxxing jargon for an allegedly ideal or exceptionally attractive woman on certain online attractiveness scales.",
+        example:
+            "The edit jokingly called the fictional character a True Eve."
+    },
+
+    "true adam": {
+        type: "noun",
+        definition:
+            "Looksmaxxing jargon for an allegedly ideal or exceptionally attractive man on certain online attractiveness scales.",
+        example:
+            "The edit jokingly described the character as a True Adam."
+    },
+
+    "sub tier list": {
+        type: "noun",
+        definition:
+            "A tier-list format associated with looksmaxxing communities that categorizes people according to perceived physical attractiveness.",
+        example:
+            "The creator made a sub tier list comparing different fictional characters."
+    },
+
+    "canon": {
+        type: "adjective",
+        definition:
+            "Officially established as part of a fictional story, universe, or continuity.",
+        example:
+            "That relationship is canon in the series."
+    },
+
+    "cancel / canceled": {
+        type: "verb",
+        definition:
+            "To publicly reject, criticize, or stop supporting someone because of something they have done or said.",
+        example:
+            "The celebrity was canceled after the controversy."
+    },
+
+    "cap": {
+        type: "noun",
+        definition:
+            "A lie, exaggeration, or false statement.",
+        example:
+            "I finished the whole assignment in five minutes. Cap."
+    },
+
+    "catfish": {
+        type: "noun",
+        definition:
+            "Someone who pretends to be another person online, often by using false information or someone else's photos.",
+        example:
+            "She discovered that the account was a catfish."
+    },
+
+    "caught in 4k": {
+        type: "phrase",
+        definition:
+            "To be clearly caught doing something, usually with photographic or video evidence.",
+        example:
+            "You said you weren't eating the cookies, but you were caught in 4K."
+    },
+
+    "chad": {
+        type: "noun",
+        definition:
+            "An internet stereotype of a confident, successful, conventionally masculine man, often used ironically or humorously.",
+        example:
+            "He carried everyone's bags like a total Chad."
+    },
+
+    "chat": {
+        type: "noun",
+        definition:
+            "A way of addressing an audience, especially one associated with livestreamers and online creators.",
+        example:
+            "Chat, what should I choose?"
+    },
+
+    "chopped": {
+        type: "adjective",
+        definition:
+            "Slang describing someone as unattractive or as looking particularly bad in a specific situation.",
+        example:
+            "He looked completely chopped in that photo."
+    },
+
+    "clock / clocked": {
+        type: "verb",
+        definition:
+            "To notice, identify, or correctly recognize something, especially something someone is trying to hide.",
+        example:
+            "She clocked his excuse immediately."
+    },
+
+    "___core": {
+        type: "suffix",
+        definition:
+            "A suffix used to describe an aesthetic, style, or subculture centered around a particular theme.",
+        example:
+            "Cottagecore is an aesthetic inspired by rural and pastoral life."
+    },
+
+    "cooked": {
+        type: "adjective",
+        definition:
+            "To be in serious trouble, exhausted, doomed, or unlikely to succeed.",
+        example:
+            "I forgot to study for the test—I’m cooked."
+    },
+
+    "crash out": {
+        type: "verb",
+        definition:
+            "To suddenly lose emotional control or react extremely strongly to a situation.",
+        example:
+            "He almost crashed out when he realized he had missed the deadline."
+    },
+
+    "cringe": {
+        type: "adjective",
+        definition:
+            "Embarrassing, awkward, or uncomfortable to watch or experience.",
+        example:
+            "That video was so cringe."
+    },
+
+    "dip": {
+        type: "verb",
+        definition:
+            "To leave a place or situation.",
+        example:
+            "It's getting late, so I'm going to dip."
+    },
+
+    "dead / i'm dead": {
+        type: "expression",
+        definition:
+            "An expression meaning that something is extremely funny, ridiculous, surprising, or shocking.",
+        example:
+            "That video was so funny, I’m dead."
+    },
+
+    "delulu": {
+        type: "adjective",
+        definition:
+            "Playfully describing someone who has unrealistic or overly optimistic beliefs.",
+        example:
+            "Thinking the celebrity will notice your comment is a little delulu."
+    },
+
+    "ate": {
+        type: "verb",
+        definition:
+            "To perform extremely well or impressively.",
+        example:
+            "She absolutely ate that presentation."
+    },
+
+    "era": {
+        type: "noun",
+        definition:
+            "A period of someone's life characterized by a particular activity, style, interest, or personality.",
+        example:
+            "I’m in my reading era."
+    },
+
+    "facts": {
+        type: "expression",
+        definition:
+            "An expression of strong agreement.",
+        example:
+            "That was the best movie this year. Facts."
+    },
+
+    "fit": {
+        type: "noun",
+        definition:
+            "Short for 'outfit'.",
+        example:
+            "Your fit looks great today."
+    },
+
+    "fomo": {
+        type: "noun",
+        definition:
+            "Fear of Missing Out; anxiety or concern about missing an enjoyable, interesting, or important experience.",
+        example:
+            "I went to the party because of FOMO."
+    },
+
+    "fr": {
+        type: "abbreviation",
+        definition:
+            "For real; meaning genuinely, seriously, or honestly.",
+        example:
+            "That was the best pizza ever, fr."
+    },
+
+    "flavoured air": {
+        type: "noun",
+        definition:
+            "A humorous euphemism for vapor associated with vaping.",
+        example:
+            "He joked about carrying around his flavoured air."
+    },
+
+    "fml": {
+        type: "expression",
+        definition:
+            "F*** my life; an expression of frustration about an unfortunate or annoying situation.",
+        example:
+            "I missed the bus and forgot my homework—FML."
+    },
+
+    "ghost / ghosting": {
+        type: "verb",
+        definition:
+            "To suddenly stop communicating with someone without explanation.",
+        example:
+            "I texted him twice, but he ghosted me."
+    },
+
+    "gg": {
+        type: "abbreviation",
+        definition:
+            "Good game; usually said after a game, competition, or match.",
+        example:
+            "GG, that was a close match."
+    },
+
+    "glazing": {
+        type: "verb",
+        definition:
+            "To excessively praise, compliment, defend, or admire someone.",
+        example:
+            "Bro is glazing the teacher so much."
+    },
+
+    "goat": {
+        type: "noun",
+        definition:
+            "Greatest of All Time; describing someone considered exceptionally successful or skilled in a particular field.",
+        example:
+            "Many people consider Serena Williams the GOAT of tennis."
+    },
+
+    "gatt": {
+        type: "verb",
+        definition:
+            "A distorted or intentionally misspelled form of 'got', used in some internet speech and memes.",
+        example:
+            "I gatt to go now."
+    },
+
+    "hits different": {
+        type: "phrase",
+        definition:
+            "Describes something that feels especially meaningful, enjoyable, emotional, or powerful compared with similar things.",
+        example:
+            "Listening to this song at night just hits different."
+    },
+
+    "high-key": {
+        type: "adverb",
+        definition:
+            "Openly, strongly, or noticeably, often contrasted with 'lowkey'.",
+        example:
+            "I high-key love this movie."
+    },
+
+    "hammered": {
+        type: "adjective",
+        definition:
+            "Extremely intoxicated.",
+        example:
+            "The movie described the character as completely hammered."
+    },
+
+    "i fear": {
+        type: "expression",
+        definition:
+            "A humorous expression used to acknowledge an unfortunate, embarrassing, or inconvenient truth.",
+        example:
+            "I may have failed that test, I fear."
+    },
+
+    "ick": {
+        type: "noun",
+        definition:
+            "A sudden feeling of disgust, discomfort, or loss of attraction caused by someone's behavior or mannerisms.",
+        example:
+            "Hearing him insult the waiter gave me the ick."
+    },
+
+    "it's giving": {
+        type: "phrase",
+        definition:
+            "Used to say that something has the appearance, atmosphere, or qualities associated with something else.",
+        example:
+            "This outfit is giving old Hollywood."
+    },
+
+    "karen": {
+        type: "noun",
+        definition:
+            "A stereotype describing someone perceived as entitled, demanding, or excessively complaining, traditionally associated with middle-aged women.",
+        example:
+            "The customer demanded to speak to the manager, so people jokingly called her a Karen."
+    },
+
+    "looksmaxxing": {
+        type: "verb",
+        definition:
+            "To attempt to improve or optimize one's physical appearance, especially through online beauty or self-improvement practices.",
+        example:
+            "He started reading about skincare as part of his looksmaxxing routine."
+    },
+
+    "let them cook": {
+        type: "phrase",
+        definition:
+            "An expression meaning to allow someone to continue because they may be developing a good idea or doing something impressive.",
+        example:
+            "Don't interrupt her yet—let her cook."
+    },
+
+    "lock in": {
+        type: "verb",
+        definition:
+            "To concentrate intensely on a task, activity, or goal.",
+        example:
+            "I have an exam tomorrow, so I need to lock in."
+    },
+
+    "lowkey": {
+        type: "adverb",
+        definition:
+            "Somewhat, secretly, subtly, or without drawing much attention.",
+        example:
+            "I lowkey want to go home."
+    },
+
+    "lowkirkenuinely": {
+        type: "adverb",
+        definition:
+            "A humorous combination of 'lowkey' and 'genuinely', meaning something is sincerely true while being expressed casually or understatedly.",
+        example:
+            "Lowkirkenuinely, that was the funniest thing I've seen all week."
+    },
+
+    "___maxxing": {
+        type: "suffix",
+        definition:
+            "A suffix meaning to deliberately maximize, optimize, or focus heavily on a particular quality or activity.",
+        example:
+            "I’m productivity-maxxing today."
+    },
+
+    "meatriding": {
+        type: "verb",
+        definition:
+            "To excessively praise, support, or defend someone, usually in an exaggerated way.",
+        example:
+            "Stop meatriding that celebrity; they aren't perfect."
+    },
+
+    "mid": {
+        type: "adjective",
+        definition:
+            "Average, mediocre, or disappointing.",
+        example:
+            "The movie was honestly pretty mid."
+    },
+
+    "mogging": {
+        type: "verb",
+        definition:
+            "To noticeably outshine, dominate, or appear more impressive than another person, often in appearance, performance, or status.",
+        example:
+            "He was mogging everyone in the competition."
+    },
+
+    "netflix and chill": {
+        type: "phrase",
+        definition:
+            "A phrase that originally referred to casually watching Netflix together but became a euphemism for romantic or sexual activity.",
+        example:
+            "The phrase 'Netflix and chill' can mean more than simply watching television."
+    },
+
+    "ops": {
+        type: "noun",
+        definition:
+            "Short for 'opponents' or people regarded as rivals or enemies.",
+        example:
+            "He was talking about his ops after the game."
+    },
+
+    "period": {
+        type: "expression",
+        definition:
+            "An emphatic expression meaning that something is final, certain, or not open to debate.",
+        example:
+            "She is the best player here, period."
+    },
+
+    "pick-me girl": {
+        type: "noun",
+        definition:
+            "A girl who seeks approval or attention by presenting herself as different from, better than, or less interested in other girls.",
+        example:
+            "People criticized her for constantly putting other girls down to seem special."
+    },
+
+    "pick-me boy": {
+        type: "noun",
+        definition:
+            "A boy who seeks approval by emphasizing how different, agreeable, or superior he is, often to attract attention.",
+        example:
+            "He was acting like a pick-me boy by constantly saying he was not like other guys."
+    },
+
+    "pov": {
+        type: "abbreviation",
+        definition:
+            "Point of View; often used online to introduce a hypothetical, imagined, or relatable scenario.",
+        example:
+            "POV: You studied for the wrong chapter."
+    },
+
+    "rent free": {
+        type: "phrase",
+        definition:
+            "Describes something that remains constantly in someone's thoughts without them being able to stop thinking about it.",
+        example:
+            "That embarrassing moment has been living rent free in my head."
+    },
+
+    "rizz": {
+        type: "noun",
+        definition:
+            "The ability to attract or charm someone, especially through confidence or charisma.",
+        example:
+            "He somehow has incredible rizz."
+    },
+
+    "roman empire": {
+        type: "noun",
+        definition:
+            "A topic someone thinks about unusually often, based on a viral trend asking people what their 'Roman Empire' was.",
+        example:
+            "That fandom is basically her Roman Empire."
+    },
+
+    "sigma": {
+        type: "noun",
+        definition:
+            "An internet meme term describing an independent or unconventional person, often used ironically or humorously.",
+        example:
+            "He thinks he's a sigma for eating lunch alone."
+    },
+
+    "sus": {
+        type: "adjective",
+        definition:
+            "Short for 'suspicious', describing something that seems questionable or untrustworthy.",
+        example:
+            "That's pretty sus."
+    },
+
+    "simp": {
+        type: "noun",
+        definition:
+            "Someone who shows excessive admiration, attention, or devotion toward another person.",
+        example:
+            "He's such a simp for his favorite celebrity."
+    },
+
+    "take the l": {
+        type: "phrase",
+        definition:
+            "To accept a loss, failure, or defeat, or admit that you were proven wrong.",
+        example:
+            "You lost the argument—just take the L."
+    },
+
+    "upper decky": {
+        type: "noun",
+        definition:
+            "Internet slang referring to a nicotine pouch placed under the upper lip.",
+        example:
+            "He joked about using an upper decky."
+    },
+
+    "w": {
+        type: "noun",
+        definition:
+            "A victory, success, or positive outcome; the opposite of an 'L'.",
+        example:
+            "Getting an A on the test is a huge W."
+    },
+
+    "touch grass": {
+        type: "phrase",
+        definition:
+            "To spend time away from the internet and return to offline, real-world activities.",
+        example:
+            "You've been gaming for eight hours—go touch grass."
+    },
+
+    "tweakin'": {
+        type: "verb",
+        definition:
+            "To act strangely, irrationally, or as though you are overreacting.",
+        example:
+            "Bro is tweakin' over nothing."
+    },
+
+    "weird flex but okay": {
+        type: "expression",
+        definition:
+            "A humorous response to someone boasting about something unusual, unnecessary, or irrelevant.",
+        example:
+            "I haven't slept in 30 hours. Weird flex but okay."
+    },
+
+    "whip": {
+        type: "noun",
+        definition:
+            "Slang for a car, especially someone's own car.",
+        example:
+            "He showed up in his new whip."
+    }
+
+};
+
+/* ========================================
+   HOMEPAGE SEARCH
+======================================== */
+
+const searchForm =
+    document.getElementById("searchForm");
+
+
+if (searchForm) {
+
+    searchForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const input =
+                document.getElementById("searchInput");
+
+
+            const word =
+                input.value.trim();
+
+
+            if (word === "") {
+                return;
+            }
+
+
+            /*
+                Send the user to the
+                SEPARATE results page.
+            */
+
+            window.location.href =
+                `The_Results.html?word=${encodeURIComponent(word)}`;
+
+        }
+    );
+
+}
+
+
+/* ========================================
+   RANDOM WORD
+======================================== */
+
+const randomButton =
+    document.getElementById("randomButton");
+
+
+if (randomButton) {
+
+    randomButton.addEventListener(
+        "click",
+        function() {
+
+            const words =
+                Object.keys(slangDictionary);
+
+
+            const randomIndex =
+                Math.floor(
+                    Math.random() * words.length
+                );
+
+
+            const randomWord =
+                words[randomIndex];
+
+
+            window.location.href =
+                `The_Results.html?word=${encodeURIComponent(randomWord)}`;
+
+        }
+    );
+
+}
+
+
+/* ========================================
+   RESULTS PAGE
+======================================== */
+
+const wordResult =
+    document.getElementById("wordResult");
+
+
+if (wordResult) {
+
+
+    /* ------------------------------------
+       GET WORD FROM URL
+    ------------------------------------ */
+
+    const parameters =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const searchedWord =
+        parameters.get("word");
+
+
+    const noResult =
+        document.getElementById("noResult");
+
+
+    const searchInput =
+        document.getElementById(
+            "resultsSearchInput"
+        );
+
+
+    /* ------------------------------------
+       PUT SEARCHED WORD IN SEARCH BAR
+    ------------------------------------ */
+
+    if (searchedWord) {
+
+        searchInput.value =
+            searchedWord;
+
+    }
+
+
+    /* ------------------------------------
+       NORMALIZE WORD
+    ------------------------------------ */
+
+    const normalizedWord =
+        searchedWord
+            ?.trim()
+            .toLowerCase();
+
+
+    /* ------------------------------------
+       FIND WORD
+    ------------------------------------ */
+
+    const entry =
+        slangDictionary[normalizedWord];
+
+
+    /* ====================================
+       WORD FOUND
+    ==================================== */
+
+    if (entry) {
+
+
+        document
+            .getElementById("wordTitle")
+            .textContent = normalizedWord;
+
+
+        document
+            .getElementById("wordType")
+            .textContent = entry.type;
+
+
+        document
+            .getElementById("wordDefinition")
+            .textContent = entry.definition;
+
+
+        document
+            .getElementById("wordExample")
+            .textContent =
+                `"${entry.example}"`;
+
+
+        wordResult
+            .classList
+            .remove("hidden");
+
+
+        noResult
+            .classList
+            .add("hidden");
+
+    }
+
+
+    /* ====================================
+       WORD NOT FOUND
+    ==================================== */
+
+    else {
+
+
+        wordResult
+            .classList
+            .add("hidden");
+
+
+        noResult
+            .classList
+            .remove("hidden");
+
+
+        document
+            .getElementById("searchedWord")
+            .textContent =
+                `"${searchedWord}"`;
+
+    }
+
+
+    /* ====================================
+       SEARCH AGAIN
+    ==================================== */
+
+    const resultsSearchForm =
+        document.getElementById(
+            "resultsSearchForm"
+        );
+
+
+    resultsSearchForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const newWord =
+                searchInput.value.trim();
+
+
+            if (newWord === "") {
+                return;
+            }
+
+
+            window.location.href =
+                `The_Results.html?word=${encodeURIComponent(newWord)}`;
+
+        }
+    );
+
+}
+

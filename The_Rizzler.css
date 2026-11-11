@@ -1,0 +1,732 @@
+
+/* ========================================
+   THE RIZZLER
+   MAIN STYLES
+======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    background: #ffd8b8;
+
+    color: #303451;
+
+}
+
+
+/* ========================================
+   PAGE
+======================================== */
+
+.page {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 60px 20px 80px;
+
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.header {
+
+    text-align: center;
+
+    margin-bottom: 55px;
+
+}
+
+
+.logo {
+
+    font-family: "Bodoni Moda", serif;
+
+    font-size: clamp(65px, 10vw, 120px);
+
+    font-weight: 700;
+
+    color: #2a263a;
+
+    line-height: 0.95;
+
+    margin-bottom: 25px;
+
+}
+
+
+.tagline {
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    line-height: 1.7;
+
+    color: #2a263a;
+
+}
+
+
+/* ========================================
+   SEARCH SECTION — HOMEPAGE
+======================================== */
+
+.search-section {
+
+    width: min(900px, 90%);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+}
+
+
+/* ========================================
+   SEARCH BAR
+======================================== */
+
+.search-bar {
+
+    width: min(650px, 100%);
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    background: hsl(0, 25%, 98%);
+
+    border: 3px solid #49445E;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow: 0 7px 0 #49445E;
+
+}
+
+
+.search-bar input {
+
+    flex: 1;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    padding: 0 25px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 18px;
+
+    color: #303451;
+
+}
+
+
+.search-bar input::placeholder {
+
+    color: #8A8994;
+
+}
+
+
+/* ========================================
+   SEARCH ICON
+======================================== */
+
+.search-icon {
+
+    width: 65px;
+
+    height: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    position: relative;
+
+    flex-shrink: 0;
+
+}
+
+
+.search-icon span {
+
+    position: absolute;
+
+    width: 19px;
+
+    height: 19px;
+
+    border: 3px solid #49445E;
+
+    border-radius: 50%;
+
+    top: 21px;
+
+    left: 20px;
+
+}
+
+
+.search-icon span::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 10px;
+
+    height: 3px;
+
+    background: #49445E;
+
+    transform: rotate(45deg);
+
+    right: -8px;
+
+    bottom: -5px;
+
+    border-radius: 2px;
+
+}
+
+
+/* ========================================
+   SEARCH DECORATION
+======================================== */
+
+.button-decoration {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+
+}
+
+
+.button-decoration span {
+
+    display: block;
+
+    width: 8px;
+
+    height: 8px;
+
+    background: #78B0C0;
+
+    border-radius: 50%;
+
+}
+
+
+/* ========================================
+   RANDOM BUTTON
+======================================== */
+
+.random-section {
+
+    margin-top: 55px;
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+.random-button {
+
+    border: none;
+
+    background: #78B0C0;
+
+    color: #2a263a;
+
+    padding: 18px 30px 20px;
+
+    border-radius: 15px;
+
+    font-family: "Montserrat", sans-serif;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 0 #49445E;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+
+}
+
+
+.random-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 0 #49445E;
+
+}
+
+
+.random-button:active {
+
+    transform: translateY(6px);
+
+    box-shadow: 0 2px 0 #49445E;
+
+}
+
+
+.random-title {
+
+    font-family: "Bodoni Moda", serif;
+
+    font-size: 25px;
+
+    font-style: italic;
+
+    font-weight: 600;
+
+}
+
+
+.random-subtitle {
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* ========================================
+   RESULTS PAGE
+======================================== */
+
+.results-search-section {
+
+    width: min(800px, 90%);
+
+    margin-top: -25px;
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+.small-logo {
+
+    font-size: clamp(55px, 7vw, 100px);
+
+    margin-bottom: 0;
+
+}
+
+
+.logo-link {
+
+    text-decoration: none;
+
+}
+
+
+/* ========================================
+   DICTIONARY CONTENT
+======================================== */
+
+.dictionary-section {
+
+    width: min(1000px, 85%);
+
+    margin-top: 70px;
+
+    color: #2a263a;
+
+}
+
+
+/* ========================================
+   FOUND WORD
+======================================== */
+
+.word-result {
+
+    padding-bottom: 50px;
+
+}
+
+
+.word-title {
+
+    font-family: "Bodoni Moda", serif;
+
+    font-size: clamp(55px, 7vw, 90px);
+
+    font-weight: 700;
+
+    color: #2a263a;
+
+    line-height: 1;
+
+    margin-bottom: 10px;
+
+}
+
+
+.word-type {
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 45px;
+
+}
+
+
+/* ========================================
+   DEFINITION
+======================================== */
+
+.definition-block,
+
+.example-block {
+
+    margin-bottom: 35px;
+
+}
+
+
+.definition-block h3,
+
+.example-block h3 {
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 18px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+
+    color: #2a263a;
+
+}
+
+
+.definition-block p {
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 24px;
+
+    line-height: 1.5;
+
+}
+
+
+/* ========================================
+   EXAMPLE
+======================================== */
+
+.example-block p {
+
+    font-family: "Bodoni Moda", serif;
+
+    font-size: 28px;
+
+    font-style: italic;
+
+    line-height: 1.4;
+
+}
+
+
+/* ========================================
+   NO RESULTS
+======================================== */
+
+.no-result {
+
+    text-align: left;
+
+    padding-top: 20px;
+
+}
+
+
+.no-result h2 {
+
+    font-family: "Bodoni Moda", serif;
+
+    font-size: clamp(35px, 5vw, 65px);
+
+    font-weight: 500;
+
+    color: #2a263a;
+
+    margin-bottom: 35px;
+
+}
+
+
+.no-result h2 span {
+
+    font-style: italic;
+
+}
+
+
+/* ========================================
+   SUBMIT BUTTON
+======================================== */
+
+.submit-button {
+
+    border: none;
+
+    background: #78B0C0;
+
+    color: #45405D;
+
+    padding: 20px 30px;
+
+    border-radius: 15px;
+
+    font-family: "Bodoni Moda", serif;
+
+    font-size: 25px;
+
+    font-style: italic;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 0 #49445E;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+
+}
+
+
+.submit-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 0 #49445E;
+
+}
+
+
+.submit-button:active {
+
+    transform: translateY(6px);
+
+    box-shadow: 0 2px 0 #49445E;
+
+}
+
+
+/* ========================================
+   HIDDEN
+======================================== */
+
+.hidden {
+
+    display: none;
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 750px) {
+
+    .page {
+
+        padding-top: 40px;
+
+    }
+
+
+    .header {
+
+        margin-bottom: 40px;
+
+    }
+
+
+    .logo {
+
+        font-size: clamp(55px, 15vw, 90px);
+
+    }
+
+
+    .tagline {
+
+        font-size: 11px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .search-section {
+
+        width: 95%;
+
+    }
+
+
+    .button-decoration {
+
+        display: none;
+
+    }
+
+
+    .search-bar {
+
+        height: 62px;
+
+    }
+
+
+    .search-icon {
+
+        width: 58px;
+
+    }
+
+
+    .search-icon span {
+
+        top: 18px;
+
+        left: 17px;
+
+    }
+
+
+    .search-bar input {
+
+        font-size: 16px;
+
+        padding: 0 15px;
+
+    }
+
+
+    .results-search-section {
+
+        width: 95%;
+
+        margin-top: -10px;
+
+    }
+
+
+    .dictionary-section {
+
+        width: 90%;
+
+        margin-top: 50px;
+
+    }
+
+
+    .word-type {
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .definition-block p {
+
+        font-size: 19px;
+
+    }
+
+
+    .example-block p {
+
+        font-size: 23px;
+
+    }
+
+
+    .no-result h2 {
+
+        line-height: 1.15;
+
+    }
+
+}
+

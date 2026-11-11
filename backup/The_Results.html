@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>The Rizzler</title>
+
+    <link rel="stylesheet" href="The_Rizzler.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body class="results-page">
+
+    <script src="PapaParse-5.0.2/papaparse.js"></script> 
+
+    <main class="page">
+
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <a
+                href="The_Rizzler.html"
+                class="logo-link"
+            >
+
+                <h1 class="logo small-logo">
+                    The Rizzler
+                </h1>
+
+            </a>
+
+        </header>
+
+
+        <!-- SEARCH BAR -->
+
+        <section class="results-search-section">
+
+            <form
+                id="resultsSearchForm"
+                class="search-bar"
+            >
+
+                <button
+                    type="submit"
+                    class="search-icon"
+                    aria-label="Search"
+                >
+
+                    <span></span>
+
+                </button>
+
+
+                <input
+                    type="text"
+                    id="resultsSearchInput"
+                    placeholder="search word or term"
+                    autocomplete="off"
+                >
+
+            </form>
+
+        </section>
+
+
+        <!-- DICTIONARY CONTENT -->
+
+        <section class="dictionary-section">
+
+
+            <!-- WORD FOUND -->
+
+            <div
+                id="wordResult"
+                class="word-result hidden"
+            >
+
+                <h2
+                    id="wordTitle"
+                    class="word-title"
+                ></h2>
+
+
+                <p
+                    id="wordType"
+                    class="word-type"
+                ></p>
+
+
+                <div class="definition-block">
+
+                    <h3>
+                        Definition
+                    </h3>
+
+                    <p id="wordDefinition"></p>
+
+                </div>
+
+
+                <div class="example-block">
+
+                    <h3>
+                        Example
+                    </h3>
+
+                    <p id="wordExample"></p>
+
+                </div>
+
+            </div>
+
+
+            <!-- NO RESULT -->
+
+            <div
+                id="noResult"
+                class="no-result hidden"
+            >
+
+                <h2>
+
+                    No results found for
+                    <span id="searchedWord"></span>
+
+                </h2>
+
+
+                <button
+                    id="submitSlangButton"
+                    class="submit-button"
+                    type="button"
+                >
+
+                    Don't see a word? Submit the slang.
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <script src="The_Rizzler.js"></script>
+
+</body>
+
+</html>
+
